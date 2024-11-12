@@ -19,4 +19,6 @@
     - Movie Suggestion
       - Movie Lists \* n
 
-- Netflix GPT - Search Bar - Movie Suggestions
+- Netflix GPT
+  - Search Bar
+  - Movie Suggestions
