@@ -20,7 +20,7 @@ const Login = () => {
       <br/>
       <p className='text-center '> OR </p>
 
-      <button className='px-4 py-2 my-4 w-full font-semibold transition-all duration-300 hover:bg-[#e2e1e1] bg-[#eceaea] border-gray-500 border-solid border-[1.5px] rounded-md bg-opacity-20 hover:bg-opacity-25 '>Use a sign-in code</button>
+      <button className='px-4 py-2 my-4 w-full font-semibold transition-all duration-300 hover:bg-[#eceaea] bg-[#e2e1e1] border-gray-500 border-solid border-[1.5px] rounded-md bg-opacity-20 hover:bg-opacity-25 '>Use a sign-in code</button>
      </form>
 
     </div>
