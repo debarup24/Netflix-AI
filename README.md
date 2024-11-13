@@ -3,6 +3,7 @@
 - This project was bootstrapped with Create React App
 - configured Tailwind CSS
 - Header
+- Login Form
 
 # Features
 
