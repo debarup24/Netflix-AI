@@ -17,7 +17,7 @@ const Login = () => {
       <img className='bg-cover overflow-hidden h-screen w-screen aspect-square object-cover' src="https://assets.nflxext.com/ffe/siteui/vlv3/f272782d-cf96-4988-a675-6db2afd165e0/web/IN-en-20241008-TRIFECTA-perspective_b28b640f-cee0-426b-ac3a-7c000d3b41b7_small.jpg" alt="Background Image" />
       </div>
 
-     <form className='absolute items-center flex-col justify-center px-12 py-8 w-[95%] bg-black md:w-[30%] my-[70px] mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80 '> 
+     <form className='absolute items-center flex-col justify-center px-12 py-8 w-[95%] bg-black md:w-[30%] my-28 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80 '> 
      <h1 className="font-bold text-3xl py-4">{isSignInFrom ? "Sign In" : "Sign Up"} </h1>
 
      {!isSignInFrom && (<input type="text"

@@ -3,8 +3,10 @@
 - This project was bootstrapped with Create React App
 - configured Tailwind CSS
 - Header
+- routing of app
 - Login Form
-- Sign up form
+- Sign up/Sign in toggle
+- Form Validation
 
 # Features
 
