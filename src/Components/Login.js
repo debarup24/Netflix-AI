@@ -1,15 +1,32 @@
 import React from 'react'
 import Header from "./Header"
 import { useRef, useState } from "react";
+import { checkValidData } from '../utils/validate';
 
 const Login = () => {
 
   const [isSignInFrom, setSignInFrom] = useState(true);
+  const [errorMessage, setErrorMessage] = useState(null)
+  
+  const email = useRef(null);
+  const password = useRef(null);
+  const name = useRef(null);
 
  const toggleSignInForm = (e) => {
   e.preventDefault();
   setSignInFrom(!isSignInFrom) ;
  } ;
+
+ const handleButtonClick = (e) => {
+      // validate the form data 
+      e.preventDefault();
+      const message = checkValidData(email.current.value, password.current.value,  name.current?.value,
+        isSignInFrom)
+      setErrorMessage(message) ;
+
+      // sign or sign up
+   };
+
   return (
     <div>
       <Header/> 
@@ -20,18 +37,22 @@ const Login = () => {
      <form className='absolute items-center flex-col justify-center px-12 py-8 w-[95%] bg-black md:w-[30%] my-28 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80 '> 
      <h1 className="font-bold text-3xl py-4">{isSignInFrom ? "Sign In" : "Sign Up"} </h1>
 
-     {!isSignInFrom && (<input type="text"
+     {!isSignInFrom && (<input type="text" ref={name}
        required
        placeholder="Full Name"
        className="px-4 py-3 rounded-md bg-transparent border-gray-500 border-solid border-[1.5px] outline-none my-4 w-full "
           /> )}
 
-      <input type="text" placeholder='Email Address' className='px-4 py-3 rounded-md bg-transparent border-gray-500 border-solid border-[1.5px] outline-none my-4 w-full '/>
+      <input type="text" ref={email} placeholder='Email Address' className='px-4 py-3 rounded-md bg-transparent border-gray-500 border-solid border-[1.5px] outline-none my-4 w-full '/>
 
-      <input type="password" placeholder='Password' className='px-4 py-3 my-4 bg-transparent border-gray-500 border-solid border-[1.5px] outline-none rounded-md w-full '/>
-
-      <button className='px-4 py-2 my-4 w-full font-semibold transition-all duration-300 hover:bg-[#831111] bg-red-600 rounded-md'>{isSignInFrom ? "Sign In" : "Sign Up"}</button>
+      <input type="password" ref={password} placeholder='Password' className='px-4 py-3 my-4 bg-transparent border-gray-500 border-solid border-[1.5px] outline-none rounded-md w-full '/>
+      
+      <p className="text-red-600 font-bold">{errorMessage}</p>
+    {/* sign in sign up button -  */}
+      <button className='px-4 py-2 my-4 w-full font-semibold transition-all duration-300 hover:bg-[#831111] bg-red-600 rounded-md' 
+       onClick={handleButtonClick} >{isSignInFrom ? "Sign In" : "Sign Up"}</button>
       <br/>
+
       {isSignInFrom && ( <p className='text-center '> OR </p> )} 
 
       {isSignInFrom && ( <button className='px-4 py-2 my-4 w-full font-semibold transition-all duration-300 hover:bg-[#eceaea] bg-[#e2e1e1] border-gray-500 rounded-md bg-opacity-20 hover:bg-opacity-25 '>Use a sign-in code</button> ) }
