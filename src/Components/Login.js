@@ -53,11 +53,11 @@ const Login = () => {
        onClick={handleButtonClick} >{isSignInFrom ? "Sign In" : "Sign Up"}</button>
       <br/>
 
-      {isSignInFrom && ( <p className='text-center '> OR </p> )} 
+      <p className='text-center'> OR </p> 
 
       {isSignInFrom && ( <button className='px-4 py-2 my-4 w-full font-semibold transition-all duration-300 hover:bg-[#eceaea] bg-[#e2e1e1] border-gray-500 rounded-md bg-opacity-20 hover:bg-opacity-25 '>Use a sign-in code</button> ) }
       
-      <p className='text-center cursor-pointer hover:underline '> {isSignInFrom ? "Forgot password?" : "Sign In with Mobile"} </p>
+      <p className='text-center cursor-pointer hover:underline p-1 m-1'> {isSignInFrom ? "Forgot password?" : "Sign In with Mobile"} </p>
 
       <p className="py-4"> {isSignInFrom ? (  <> New to Netflix?
             <button
