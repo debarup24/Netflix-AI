@@ -1,8 +1,8 @@
 
-export const checkValidData = (email, password, name= "", isSignInFrom = true) => {
+export const checkValidData = (email, password, name= "", isSignInForm = true) => {
     const isEmailValid = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/.test(email);
      
-    if(!isSignInFrom && name.trim() === "") return "*Name is required"; 
+    if(!isSignInForm && name.trim() === "") return "*Name is required"; 
 
     const isPasswordValid = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(password);
 

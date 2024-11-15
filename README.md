@@ -6,7 +6,12 @@
 - routing of app
 - Login Form
 - Sign up/Sign in toggle
+- creating reference - useRef hooks
 - Form Validation
+- Firebase setup
+- create sign up user account using firebase
+- implement sign in user API
+- ceated redux store - userSlice
 
 # Features
 
