@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 import { updateProfile } from 'firebase/auth';
 import avatar from "../assets/avatar.png";
 import { useDispatch } from 'react-redux';
-//import { addUser } from "../utils/userSlice";
+import { addUser } from "../utils/userSlice";
 
 
 const Login = () => {
