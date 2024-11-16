@@ -28,8 +28,8 @@ const Body = () => {
     // sign in case : 
     if (user) {
       // User is signed in, get user over here -
-        const {uid, email, displayName} = user;
-         dispatch(addUser({uid : uid, email: email, displayName: displayName}));
+        const {uid, email, displayName, photoURL} = user;
+         dispatch(addUser({uid : uid, email: email, displayName: displayName, photoURL: photoURL}));
       // after sign in redirect/navigate user to main browse/content page - 
          
 
