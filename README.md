@@ -15,6 +15,7 @@
 - implemented sign out
 - update profile
 - Fetch movie data from TMDB API
+- add hard-coded values to the utlis/constant file
 
 # Features
 
