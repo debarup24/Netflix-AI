@@ -1,23 +1,50 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { signOut } from 'firebase/auth';
 import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { addUser, removeUser } from '../utils/userSlice'
+import { onAuthStateChanged } from 'firebase/auth'
 
 const Header = () => {
 
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
+   const dispatch = useDispatch() ;
       
   const handleSignOut = () => {
     signOut(auth).then(() => {
       // Sign-out successful. navigate to home page 
-      navigate("/")
+     
     }).catch((error) => {
       // An error happened.
        navigate("/");
     });
   }
+
+  // once an event that's why useEffect
+ useEffect ( () => { 
+  onAuthStateChanged(auth, (user) => {
+    // sign in case : 
+    if (user) {
+      // User is signed in, get user over here -
+        const {uid, email, displayName, photoURL} = user;
+         dispatch(addUser({uid : uid, email: email, displayName: displayName, photoURL: photoURL}));
+      // after sign in redirect/navigate user to main browse/content page - 
+         navigate("/browse");
+
+      // update the store 
+        
+    } 
+    // sign out case :
+    else {
+      // User is signed out
+        dispatch(removeUser()) ;
+      // after sign out redirect/navigate user to main login page -
+        navigate("/") ;  
+    }
+  });
+ }, []) ; 
   
   return (
   
