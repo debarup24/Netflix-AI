@@ -7,11 +7,10 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword 
 } from "firebase/auth";
-
 import { updateProfile } from 'firebase/auth';
-import avatar from "../assets/avatar.png";
 import { useDispatch } from 'react-redux';
 import { addUser } from "../utils/userSlice";
+import { USER_AVATAR } from '../utils/constant';
 
 
 const Login = () => {
@@ -49,7 +48,7 @@ const Login = () => {
   
   // after creating the user profile, now updating the user  
     updateProfile(user, {
-      displayName: name.current.value , photoURL: avatar
+      displayName: name.current.value , photoURL: USER_AVATAR, 
     }).then(() => {
       // Profile updated!
        const { uid, email, displayName, photoURL } = auth.currentUser;

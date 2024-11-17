@@ -5,6 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { addUser, removeUser } from '../utils/userSlice'
 import { onAuthStateChanged } from 'firebase/auth'
+import { logo } from '../utils/constant';
+
+
 
 const Header = () => {
 
@@ -24,12 +27,12 @@ const Header = () => {
 
   // once an event that's why useEffect
  useEffect ( () => { 
-  onAuthStateChanged(auth, (user) => {
+  const unsubscribe = onAuthStateChanged(auth, (user) => {
     // sign in case : 
     if (user) {
       // User is signed in, get user over here -
         const {uid, email, displayName, photoURL} = user;
-         dispatch(addUser({uid : uid, email: email, displayName: displayName, photoURL: photoURL}));
+         dispatch(addUser({uid : uid, email: email, displayName: displayName, photoURL: photoURL , }));
       // after sign in redirect/navigate user to main browse/content page - 
          navigate("/browse");
 
@@ -44,13 +47,15 @@ const Header = () => {
         navigate("/") ;  
     }
   });
+   // unsubscribe the (onAuthStateChanged), when header component unloads  unsubscribe component unmount
+   return () => unsubscribe();
  }, []) ; 
   
   return (
   
     <div className='absolute w-screen z-10 px-5 md:px-8 py-2 bg-gradient-to-b from-black flex flex-col md:justify-between sm:justify-between md:flex-row sm:mb-28 '>
       <img className='w-44  md:mx-0'
-      src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png" alt="logo" /> 
+      src={logo} alt="logo" /> 
 
     
     <div className="right flex">
@@ -70,8 +75,8 @@ const Header = () => {
 
        { user && <div className="py-2 px-2 text-white font-bold rounded-lg min-w-fit duration-150 flex items-center gap-1">
             <img
-              className="md:h-6 h-5  object-cover aspect-square"
-              src={user?.photoURL}
+              className='md:h-6 h-5 object-cover aspect-square'
+              src = {user.photoURL}
               alt="user icon"
             />
             <button
