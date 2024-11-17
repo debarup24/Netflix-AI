@@ -5,11 +5,11 @@ import VideoBG from './VideoBG';
 
 const MainContainer = () => {
  //movie data come from redux store using selector 
-   const movies = useSelector((store) => store.movies?.NowPlayingMovies);  // '?' optional chaining -- if NowPlayingMovies is empty it will throw an error
+   const movies = useSelector((store) => store.movies?.nowPlayingMovies);  // '?' optional chaining -- if NowPlayingMovies is empty it will throw an error
     
    if(!movies) return;
 
-   const mainMovie = movies[0] ;
+   const mainMovie = movies[1] ;
 
    const {original_title, overview} = mainMovie ;
 
