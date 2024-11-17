@@ -16,6 +16,7 @@
 - update profile
 - Fetch movie data from TMDB API
 - add hard-coded values to the utlis/constant file
+- TMDB API call - now playing movies
 
 # Features
 
