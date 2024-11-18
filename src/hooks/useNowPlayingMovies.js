@@ -12,7 +12,7 @@ const useNowPlayingMovies = () => {
     
           // now use data.json to convert the data into json for readability
           const json = await data.json();
-          console.log(json) ;
+          
            dispatch(addNowPlayingMovies(json.results))
     } ;
     

@@ -1,28 +1,14 @@
-import React, { useEffect } from 'react'
-import { API_OPTIONS } from '../utils/constant'
-import { useDispatch, useSelector } from 'react-redux';
-import { addTrailerVideo } from '../utils/moviesSlice';
+import React from 'react'
+
+import {  useSelector } from 'react-redux';
+import useMovieTrailer from '../hooks/useMovieTrailer';
+
 
 const VideoBG = ({movieId}) => {
 
-  const trailerVideo = useSelector((store) => store.movies?.trailerVidero)
-   const dispatch = useDispatch(); 
-
-  const getMovieVideos = async () => {
-    const data = await fetch('https://api.themoviedb.org/3/movie/1034541/videos?language=en-US', API_OPTIONS )
-
-      const json  = await data.json();
-      console.log(json);
-   
-      const filterTrailer = json.results.filter((video) => video?.type === "Trailer")
-      const trailer = filterTrailer.length ? filterTrailer[0] :  json.results[0]
-       console.log(trailer);
-       dispatch(addTrailerVideo);  //dispatch(action)
-  } ;
-
-  useEffect (() => {
-    getMovieVideos() ;
-   }, []) ;
+  const trailerVideo = useSelector((store) => store.movies?.trailerVideo) ;
+     
+     useMovieTrailer(movieId) ;
 
   return (
     <div className=" w-screen md:w-screen">
@@ -30,9 +16,8 @@ const VideoBG = ({movieId}) => {
       // width="560" 
       // height="315" 
       src= {
-        "https://www.youtube.com/embed/" +
-        trailerVideo?.key +
-        "?&autoplay=1&mute=1"
+        `https://www.youtube.com/embed/${trailerVideo?.key}?&autoplay=1&mute=1`
+      
       }
       title="YouTube video player" 
       
