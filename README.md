@@ -17,6 +17,12 @@
 - Fetch movie data from TMDB API
 - add hard-coded values to the utlis/constant file
 - TMDB API call - now playing movies
+- custom hook
+- update store with movies data
+- fetch data for trailer video
+- embeded youtube video
+- background video set
+- build secondary components
 
 # Features
 
