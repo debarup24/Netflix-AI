@@ -76,7 +76,7 @@ const Header = () => {
        { user && 
        <div className="py-2 px-2 text-white font-bold rounded-lg min-w-fit duration-150 flex items-center gap-1">
          <div>
-          <button className='flex-col md:flex-row w-28 bg-slate-600 bg-opacity-40 hover:text-red-600 text-white px-4 py-1 justify-around rounded-lg font-bold  lg:px-1 md:px-0 mr-1 gap-2'> 🔍 AI Search</button>
+          <button className='flex-row max-w-screen-sm md:flex-row w-28 bg-slate-600 bg-opacity-40 hover:text-red-600 text-white px-4 py-1 justify-around rounded-lg font-bold  lg:px-1 md:px-0 mr-1 gap-2'> 🔍 AI Search</button>
          </div> 
             <img
               className='md:h-7 h-5 object-cover aspect-square ml-3'
