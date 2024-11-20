@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addUser, removeUser } from '../utils/userSlice'
 import { onAuthStateChanged } from 'firebase/auth'
 import { logo } from '../utils/constant';
+import { toggleGptSearchView } from '../utils/gptSlice';
 
 
 
@@ -50,6 +51,12 @@ const Header = () => {
    // unsubscribe the (onAuthStateChanged), when header component unloads  unsubscribe component unmount
    return () => unsubscribe();
  }, []) ; 
+
+ const handleGptSearchClick = () => {
+   // toggle gpt search
+    dispatch (toggleGptSearchView()) ;
+   
+ }
   
   return (
   
@@ -76,7 +83,8 @@ const Header = () => {
        { user && 
        <div className="py-2 px-2 text-white font-bold rounded-lg min-w-fit duration-150 flex items-center gap-1">
          <div>
-          <button className='flex-col max-w-screen md:flex-row w-20 md:w-32 bg-slate-600 bg-opacity-40 hover:text-red-600 text-white px-4 py-1 justify-around rounded-lg font-bold  lg:px-1 md:px-0 -ml-4 gap-2'> 🔍 AI Search</button>
+          <button className='flex-col max-w-screen md:flex-row w-20 md:w-32 bg-slate-600 bg-opacity-40 hover:text-red-600 text-white px-4 py-1 justify-around rounded-lg font-bold  lg:px-1 md:px-0 -ml-4 gap-2' onClick={handleGptSearchClick}
+          > 🔍 AI Search</button>
          </div> 
             <img
               className='md:h-7 h-5 object-cover aspect-square ml-3'
