@@ -14,7 +14,7 @@ const SecondaryContainer = () => {
         <MovieList title={"Trending"} movies={movies.TrendingMovies} />
         <MovieList title={"Popular"} movies={movies.PopularMovies} />
         <MovieList title={"Upcoming Movies"} movies={movies.upcomingMovies} />
-        <MovieList title={"Horror Movies"} movies={movies.upcomingMovies} />
+        
       </div>
     </div> )
   )

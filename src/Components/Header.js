@@ -73,21 +73,24 @@ const Header = () => {
 
        </div> 
 
-       { user && <div className="py-2 px-2 text-white font-bold rounded-lg min-w-fit duration-150 flex items-center gap-1">
+       { user && 
+       <div className="py-2 px-2 text-white font-bold rounded-lg min-w-fit duration-150 flex items-center gap-1">
+         <div>
+          <button className='flex-col md:flex-row w-28 bg-slate-600 bg-opacity-40 hover:text-red-600 text-white px-4 py-1 justify-around rounded-lg font-bold  lg:px-1 md:px-0 mr-1 gap-2'> 🔍 AI Search</button>
+         </div> 
             <img
-              className='md:h-6 h-5 object-cover aspect-square'
+              className='md:h-7 h-5 object-cover aspect-square ml-3'
               src = {user.photoURL}
               alt="user icon"
             />
             <button
               onClick={handleSignOut}
-              className=" hover:text-red-600 font-bold text-white"
+              className=" hover:text-red-600 font-bold text-white mx-1 border-[1.5px] sm:w- border-gray-600 hover:ring-2 lg:px-5 md:px-1 px-3 py-1 rounded-md "
             >
               Sign Out
             </button>
           </div> }
 
-       {/* <button onClick={handleSignOut} className='font-bold text-black bg-yellow-100'>(Sign out)</button> */}
     </div>
 
     </div>

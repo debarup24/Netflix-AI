@@ -23,6 +23,8 @@
 - embeded youtube video
 - background video set
 - build secondary components
+- build movie cards
+- TMDB img CDN URL
 
 # Features
 
