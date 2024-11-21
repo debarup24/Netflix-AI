@@ -109,6 +109,8 @@ const Login = () => {
        className="px-4 py-3 rounded-md bg-transparent border-gray-500 border-solid border-[1.5px] outline-none my-4 w-full "
           /> )}
 
+  {/* ईमेल एड्रेस */}
+
       <input type="text" ref={email} placeholder='Email Address' className='px-4 py-3 rounded-md bg-transparent border-gray-500 border-solid border-[1.5px] outline-none my-4 w-full '/>
 
       <input type="password" ref={password} placeholder='Password' className='px-4 py-3 my-4 bg-transparent border-gray-500 border-solid border-[1.5px] outline-none rounded-md w-full '/>

@@ -5,9 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { addUser, removeUser } from '../utils/userSlice'
 import { onAuthStateChanged } from 'firebase/auth'
-import { logo } from '../utils/constant';
+import { logo, SUPPORTED_LANGUAGES } from '../utils/constant';
 import { toggleGptSearchView } from '../utils/gptSlice';
-
+import {changeLanguage} from '../utils/configSlice'
+import lang from "../utils/LanguageConstant";
 
 
 const Header = () => {
@@ -16,6 +17,7 @@ const Header = () => {
   const user = useSelector((store) => store.user);
    const dispatch = useDispatch() ;
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
+  const langKey = useSelector((store) => store.config.lang);
       
   const handleSignOut = () => {
     signOut(auth).then(() => {
@@ -58,6 +60,11 @@ const Header = () => {
     dispatch(toggleGptSearchView()) ;
    
  }
+      // on select of a lang it will trigger an event 
+ const handleLanguageChange = (e) => {
+     dispatch (changeLanguage(e.target.value)) ;
+  
+}
   
   return (
   
@@ -71,12 +78,18 @@ const Header = () => {
            <div className=" w-auto bg-[#111112] bg-opacity-40 text-white mx-4 
              lg:px-5 md:px-1 px-3 py-1 rounded-md border-[1.5px] sm:w- border-gray-600 hover:ring-2 hover:ring-gray-200 opacity-80 items-center ">
 
-             <select name="" id=""  className=' bg-transparent outline-none' /*onChange={languageHandler*/  >
-                <option value="English" className='bg-black bg-opacity-90'>English</option>
-                 <option value="हिन्दी" className='bg-black bg-opacity-90'>हिन्दी</option>
+             <select name="" id=""  className=' bg-transparent outline-none' onChange={handleLanguageChange}  >
+             {SUPPORTED_LANGUAGES.map((lang) => (
+                <option className='bg-black bg-opacity-90' key={lang.identifier} value={lang.identifier}>{lang.name}</option>
+              ))}
+
+                {/* <option value="english" className='bg-black bg-opacity-90'>English</option>
+                 <option value="hindi" className='bg-black bg-opacity-90'>हिन्दी</option>
+                 <option value="bengali" className='bg-black bg-opacity-90'>বাংলা</option>
+                 <option value="spanish" className='bg-black bg-opacity-90'>Español</option> */}
               </select>
           </div>
-          { !user && <div> <button className=' flex-col md:flex-row w-24 bg-[#e50815] hover:bg-[#851a21] text-white px-4 py-1 justify-around rounded-lg font-bold  lg:px-1 md:px-0'>Sign In
+          { !user && <div> <button className=' flex-col md:flex-row w-24 bg-[#e50815] hover:bg-[#851a21] text-white px-4 py-1 justify-around rounded-lg font-bold  lg:px-1 md:px-0'>{lang[langKey].doSignIn}
              </button> </div> }
 
        </div> 
@@ -85,7 +98,7 @@ const Header = () => {
        <div className="py-2 px-2 text-white font-bold rounded-lg min-w-fit duration-150 flex items-center gap-1">
          <div>
           <button className='flex-col max-w-screen md:flex-row w-20 md:w-32 bg-slate-600 bg-opacity-40 hover:text-red-600 text-white px-4 py-1 justify-around rounded-lg font-bold  lg:px-1 md:px-0 -ml-4 gap-2' onClick={handleGptSearchClick}
-          > 🔍 AI Search</button>
+          > 🔍 {lang[langKey].AISearchBtn}</button>
          </div> 
 
             <img
@@ -97,7 +110,7 @@ const Header = () => {
               onClick={handleSignOut}
               className=" flex-col hover:text-red-600 font-bold text-white mx-1 border-[1.5px] sm:w- border-gray-600 hover:ring-2 lg:px-5 md:px-1 px-3 py-1 rounded-md "
             >
-              Sign Out
+             {lang[langKey].doSignOut}
             </button>
           </div> }
 
