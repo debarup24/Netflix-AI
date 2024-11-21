@@ -2,7 +2,7 @@ import React from 'react'
 import MovieCard from './MovieCard';
 
 const MovieList = ({title, movies}) => {
-    console.log(movies);
+    
   return (
     <div className="p-6 relative overflow-x-scroll hide-scrollbar md:hide-scrollbar space-x-4"  style={{ scrollBehavior: "smooth" }} > 
        <div>

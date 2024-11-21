@@ -15,6 +15,7 @@ const Header = () => {
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
    const dispatch = useDispatch() ;
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
       
   const handleSignOut = () => {
     signOut(auth).then(() => {
@@ -54,7 +55,7 @@ const Header = () => {
 
  const handleGptSearchClick = () => {
    // toggle gpt search
-    dispatch (toggleGptSearchView()) ;
+    dispatch(toggleGptSearchView()) ;
    
  }
   
@@ -86,6 +87,7 @@ const Header = () => {
           <button className='flex-col max-w-screen md:flex-row w-20 md:w-32 bg-slate-600 bg-opacity-40 hover:text-red-600 text-white px-4 py-1 justify-around rounded-lg font-bold  lg:px-1 md:px-0 -ml-4 gap-2' onClick={handleGptSearchClick}
           > 🔍 AI Search</button>
          </div> 
+
             <img
               className='md:h-7 h-5 object-cover aspect-square ml-3'
               src = {user.photoURL}
