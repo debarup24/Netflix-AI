@@ -6,13 +6,14 @@ import SecondaryContainer from './SecondaryContainer';
 import useTrendingMovies from '../hooks/useTrendingMovies';
 import usePopularMovies from '../hooks/usePopularMovies';
 import GptSearch from './GptSearch';
+import useUpcomingMovies from '../hooks/useUpcomingMovies';
 
 const Browse = () => {
 
    useNowPlayingMovies();
    useTrendingMovies();
    usePopularMovies() ;
-
+   useUpcomingMovies();
   return (
     <div >
     <Header/>
