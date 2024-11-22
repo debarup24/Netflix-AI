@@ -81,12 +81,8 @@ const Header = () => {
              <select name="" id=""  className=' bg-transparent outline-none' onChange={handleLanguageChange}  >
              {SUPPORTED_LANGUAGES.map((lang) => (
                 <option className='bg-black bg-opacity-90' key={lang.identifier} value={lang.identifier}>{lang.name}</option>
-              ))}
-
-                {/* <option value="english" className='bg-black bg-opacity-90'>English</option>
-                 <option value="hindi" className='bg-black bg-opacity-90'>हिन्दी</option>
-                 <option value="bengali" className='bg-black bg-opacity-90'>বাংলা</option>
-                 <option value="spanish" className='bg-black bg-opacity-90'>Español</option> */}
+              ))} 
+         
               </select>
           </div>
           { !user && <div> <button className=' flex-col md:flex-row w-24 bg-[#e50815] hover:bg-[#851a21] text-white px-4 py-1 justify-around rounded-lg font-bold  lg:px-1 md:px-0'>{lang[langKey].doSignIn}
