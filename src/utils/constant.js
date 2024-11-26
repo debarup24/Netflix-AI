@@ -23,3 +23,5 @@
     { identifier: "bengali", name: "বাংলা" },
     { identifier: "spanish", name: "Español" },
   ];
+
+  export const OPENAI_KEY = "AIzaSyA_5VldJjSBKRqv7DPKtsdcy5CR0J5DbiM"

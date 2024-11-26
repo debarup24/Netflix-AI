@@ -20,6 +20,7 @@ const lang = {
          btnMoreInfo : "More Info" ,
          btnPlay : "Play" ,
          TrendingMovie : "Trending" ,
+         Homepage : "Homepage" ,
         
     },
     hindi:{
@@ -43,6 +44,7 @@ const lang = {
         btnMoreInfo : "अधिक जानकारी" ,
         btnPlay : "चलाएं" ,
         TrendingMovie : "ट्रेंडिंग" ,
+        Homepage : "मुखपृष्ठ" ,
 
     },
     bengali:{
@@ -66,6 +68,7 @@ const lang = {
         btnMoreInfo : "আরও তথ্য" ,
         btnPlay : "চালান" ,
         TrendingMovie : "ট্রেন্ডিং" ,
+        Homepage : "হোমপেজ" , 
     },
     spanish:{
         search:"buscar",
@@ -88,6 +91,7 @@ const lang = {
         btnMoreInfo : "Más información" , 
         btnPlay : "Reproducir" ,
         TrendingMovie : "de tendencia" ,
+        Homepage : "página de inicio" ,
     }
 }
 

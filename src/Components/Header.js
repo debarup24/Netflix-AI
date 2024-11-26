@@ -58,6 +58,7 @@ const Header = () => {
  const handleGptSearchClick = () => {
    // toggle gpt search
     dispatch(toggleGptSearchView()) ;
+
    
  }
       // on select of a lang it will trigger an event 
@@ -94,7 +95,8 @@ const Header = () => {
        <div className="py-2 px-2 text-white font-bold rounded-lg min-w-fit duration-150 flex items-center gap-1">
          <div>
           <button className='flex-col max-w-screen md:flex-row w-20 md:w-32 bg-slate-600 bg-opacity-40 hover:text-red-600 text-white px-4 py-1 justify-around rounded-lg font-bold  lg:px-1 md:px-0 -ml-4 gap-2' onClick={handleGptSearchClick}
-          > 🔍 {lang[langKey].AISearchBtn}</button>
+          >  {showGptSearch ? lang[langKey].Homepage : lang[langKey].AISearchBtn}
+          </button>
          </div> 
 
             <img

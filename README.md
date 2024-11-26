@@ -25,6 +25,10 @@
 - build secondary components
 - build movie cards
 - TMDB img CDN URL
+- AI Search page
+- AI Search bar
+- Multi-language support feature
+- Integrate Open AI API
 
 # Features
 
