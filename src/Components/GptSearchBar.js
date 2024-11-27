@@ -1,8 +1,8 @@
-
+import Openai from '../utils/Openai';
 import React, { useRef } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import lang from "../utils/LanguageConstant";
-import Openai from '../utils/Openai';
+
 import { API_OPTIONS } from '../utils/constant';
 import { addGptMovieResult } from "../utils/gptSlice";
 
@@ -38,7 +38,7 @@ const GptSearchBar = () => {
       try {
         const model = Openai.getGenerativeModel({ model: "gemini-1.5-flash" });
     // make an API call to Open AI API to get the Movie result
-     const gptQuery = "Act as a movie recommendation system and suggest some movies for the query" + searchText.current.value + ". only give me the name of 6 movies, comma separated  like the example result given ahed. Example result : Dhoom 3, stree 2, Dilwale, Sholay, Padmavaat, Badrinath ki dulhania" ;
+     const gptQuery = "Act as a movie recommendation system and suggest some  movies based on - " + searchText.current.value + " " + " Provide unique and varied results each time, and avoid repeating previously suggested movies." + "and only give the name of 6 movies, comma separated  like the example result given ahed. Example result : Dhoom 3, stree 2, Dilwale, Sholay, Padmavaat, Badrinath ki dulhania" ;
 
      const result = await model.generateContent(gptQuery);
 
@@ -54,14 +54,15 @@ const GptSearchBar = () => {
   const tmdbResults = await Promise.all(promiseArray);
 
   console.log(tmdbResults);
+
   dispatch(addGptMovieResult({ movieNames: getMovies, movieResults: tmdbResults }));
+
 } catch (error) {
   console.error("Error during GPT search:", error);
 }
 };
   
  
-
   return (
     <div className="pt-[45%] md:pt-[12%] flex justify-center">
 

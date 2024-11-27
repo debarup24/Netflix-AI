@@ -4,6 +4,8 @@ import { createSlice } from "@reduxjs/toolkit";
     name : "gpt" ,
     initialState : {
         showGptSearch : false ,
+        movieNames: [],
+        movieResults:[],
     } ,
 
     reducers : {

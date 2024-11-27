@@ -24,4 +24,4 @@
     { identifier: "spanish", name: "Español" },
   ];
 
-  export const OPENAI_KEY = "AIzaSyA_5VldJjSBKRqv7DPKtsdcy5CR0J5DbiM"
+  export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY
