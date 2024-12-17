@@ -38,12 +38,14 @@ const GptSearchBar = () => {
       try {
         const model = Openai.getGenerativeModel({ model: "gemini-1.5-flash" });
     // make an API call to Open AI API to get the Movie result
-     const gptQuery = "Act as a movie recommendation system and suggest some  movies based on - " + searchText.current.value + " " + " Provide unique and varied results each time, and avoid repeating previously suggested movies." + "and only give the name of 6 movies, comma separated  like the example result given ahed. Example result : Dhoom 3, stree 2, Dilwale, Sholay, Padmavaat, Badrinath ki dulhania" ;
+      console.log(model) ; 
+
+     const gptQuery = "Act as a movie recommendation system and suggest some  movies based on - " + searchText.current.value + " " + " Provide unique and varied results each time, and avoid repeating previously suggested movies." + "and only give the name of 3 movies, comma separated  like the example result given ahed. Example result : Dhoom 3, stree 2, Sholay, Badrinath ki dulhania" ;
 
      const result = await model.generateContent(gptQuery);
 
      if (!result || !result.response || !result.response.candidates.length) {
-      console.error("No result returned from GPT API");
+      console.error("No result returned from Gemini API");
       return; // Handle no results case
     }
     const getMovies =
